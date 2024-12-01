@@ -2,7 +2,7 @@ using DataFrames
 using Statistics
 using LinearAlgebra
 
-export get_covar, covar_eigs
+export get_covar, get_transform_matr
 
 function get_covar(df::DataFrame)
     cov_matr = cov(Matrix(df))
