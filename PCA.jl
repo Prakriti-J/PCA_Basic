@@ -20,11 +20,10 @@ function get_transform_matr(df::DataFrame, dims::Int)
     m = []
     for _ in 1:dims
         ind = findmax(e_vals)[2]
-        append!(m, [e_vects[ind, :]])
+        append!(m, [e_vects[:, ind]])
         e_vals[ind] = 0
     end
     m = hcat(m...)
-    m = Matrix(transpose(m))
+    m = Matrix(m)
     return m
 end
-
