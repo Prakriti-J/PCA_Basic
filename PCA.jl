@@ -5,6 +5,7 @@ using LinearAlgebra
 export get_transform_matr
 
 function get_covar(df::DataFrame)
+    dropmissing!(df)
     cov_matr = cov(Matrix(df))
     return cov_matr
 end
