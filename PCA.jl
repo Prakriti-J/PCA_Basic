@@ -2,12 +2,14 @@ using DataFrames
 using Statistics
 using LinearAlgebra
 
+export get_covar, covar_eigs
+
 function get_covar(df::DataFrame)
     cov_matr = cov(Matrix(df))
     return cov_matr
 end
 
-function covar_eigs(cov_matr::Matrix, k::Int)
+function get_transform_matr(cov_matr::Matrix, k::Int)
     E = eigen(cov_matr)
     e_vals = E.values
     e_vects = E.vectors
